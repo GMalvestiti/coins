@@ -1,32 +1,29 @@
 package net.riser876.coins.datagen.provider;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
 import net.minecraft.core.HolderLookup;
-import net.riser876.coins.registry.CoinId;
+import net.riser876.coins.registry.CoinsItem;
 import net.riser876.coins.registry.CoinsTag;
 
 import java.util.concurrent.CompletableFuture;
 
-import static net.riser876.coins.util.CoinsGlobals.keyOf;
+public class CoinsItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
 
-public class CoinsItemTagProvider extends FabricTagProvider.ItemTagProvider {
-
-    public CoinsItemTagProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
-        super(output, registriesFuture);
+    public CoinsItemTagProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registryLookupFuture) {
+        super(output, registryLookupFuture);
     }
 
     @Override
-    protected void addTags(HolderLookup.Provider wrapperLookup) {
-        tag(CoinsTag.GOLD_COIN).add(keyOf(CoinId.GOLD_COIN.getId()));
+    protected void addTags(HolderLookup.Provider registries) {
 
-        tag(CoinsTag.IRON_COIN).add(keyOf(CoinId.IRON_COIN.getId()));
+        valueLookupBuilder(CoinsTag.GOLD_COIN).add(CoinsItem.GOLD_COIN);
+        valueLookupBuilder(CoinsTag.IRON_COIN).add(CoinsItem.IRON_COIN);
+        valueLookupBuilder(CoinsTag.COPPER_COIN).add(CoinsItem.COPPER_COIN);
 
-        tag(CoinsTag.COPPER_COIN).add(keyOf(CoinId.COPPER_COIN.getId()));
-
-        tag(CoinsTag.COINS)
-                .addOptionalTag(CoinsTag.GOLD_COIN.location())
-                .addOptionalTag(CoinsTag.IRON_COIN.location())
-                .addOptionalTag(CoinsTag.COPPER_COIN.location());
+        valueLookupBuilder(CoinsTag.COINS)
+                .addOptionalTag(CoinsTag.GOLD_COIN)
+                .addOptionalTag(CoinsTag.IRON_COIN)
+                .addOptionalTag(CoinsTag.COPPER_COIN);
     }
 }

@@ -1,29 +1,29 @@
 package net.riser876.coins.datagen.provider;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
-import net.minecraft.data.models.BlockModelGenerators;
-import net.minecraft.data.models.ItemModelGenerators;
-import net.minecraft.data.models.model.ModelTemplates;
+import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.minecraft.client.data.models.BlockModelGenerators;
+import net.minecraft.client.data.models.ItemModelGenerators;
+import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.world.item.Item;
 import net.riser876.coins.registry.CoinsItem;
 
 public class CoinsModelProvider extends FabricModelProvider {
 
-    public CoinsModelProvider(FabricDataOutput output) {
+    public CoinsModelProvider(FabricPackOutput output) {
         super(output);
     }
 
     @Override
-    public void generateBlockStateModels(BlockModelGenerators blockStateModelGenerator) {
+    public void generateBlockStateModels(BlockModelGenerators blockModelGenerators) {
 
     }
 
     @Override
-    public void generateItemModels(ItemModelGenerators itemModelGenerator) {
-        itemGenerated(itemModelGenerator, CoinsItem.GOLD_COIN);
-        itemGenerated(itemModelGenerator, CoinsItem.IRON_COIN);
-        itemGenerated(itemModelGenerator, CoinsItem.COPPER_COIN);
+    public void generateItemModels(ItemModelGenerators itemModelGenerators) {
+        itemGenerated(itemModelGenerators, CoinsItem.GOLD_COIN);
+        itemGenerated(itemModelGenerators, CoinsItem.IRON_COIN);
+        itemGenerated(itemModelGenerators, CoinsItem.COPPER_COIN);
     }
 
     private static void itemGenerated(ItemModelGenerators itemModelGenerator, Item item) {

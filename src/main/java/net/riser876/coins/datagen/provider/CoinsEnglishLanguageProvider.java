@@ -1,6 +1,6 @@
 package net.riser876.coins.datagen.provider;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.core.HolderLookup;
 import net.riser876.coins.registry.CoinsItem;
@@ -10,12 +10,12 @@ import java.util.concurrent.CompletableFuture;
 
 public class CoinsEnglishLanguageProvider extends FabricLanguageProvider {
 
-    public CoinsEnglishLanguageProvider(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
-        super(dataOutput, "en_us", registryLookup);
+    public CoinsEnglishLanguageProvider(FabricPackOutput packOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
+        super(packOutput, "en_us", registryLookup);
     }
 
     @Override
-    public void generateTranslations(HolderLookup.Provider wrapperLookup, TranslationBuilder translationBuilder) {
+    public void generateTranslations(HolderLookup.Provider registryLookup, TranslationBuilder translationBuilder) {
         translationBuilder.add(CoinsItem.COINS_ITEM_GROUP_KEY, "Coins");
 
         translationBuilder.add(CoinsItem.GOLD_COIN, "Gold Coin");
