@@ -2,19 +2,19 @@ package net.riser876.coins.datagen.provider;
 
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
+import net.riser876.coins.Coins;
 import net.riser876.coins.registry.CoinsItem;
 import net.riser876.coins.registry.CoinsTag;
-import net.riser876.coins.util.CoinsGlobals;
 
 public class CoinsEnglishLanguageProvider extends LanguageProvider {
 
     public CoinsEnglishLanguageProvider(PackOutput output) {
-        super(output, CoinsGlobals.MOD_ID, "en_us");
+        super(output, Coins.MOD_ID, "en_us");
     }
 
     @Override
     protected void addTranslations() {
-        add("itemgroup." + CoinsGlobals.MOD_ID, "Coins");
+        add("itemgroup." + Coins.MOD_ID, "Coins");
 
         addItem(CoinsItem.GOLD_COIN, "Gold Coin");
         addItem(CoinsItem.IRON_COIN, "Iron Coin");

@@ -2,12 +2,10 @@ package net.riser876.coins.datagen.provider;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.tags.ItemTagsProvider;
-import net.minecraft.data.tags.TagsProvider;
-import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.common.data.ItemTagsProvider;
+import net.riser876.coins.Coins;
 import net.riser876.coins.registry.CoinsItem;
 import net.riser876.coins.registry.CoinsTag;
-import net.riser876.coins.util.CoinsGlobals;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.CompletableFuture;
@@ -15,9 +13,8 @@ import java.util.concurrent.CompletableFuture;
 public class CoinsItemTagProvider extends ItemTagsProvider {
 
     public CoinsItemTagProvider(PackOutput output,
-                                CompletableFuture<HolderLookup.Provider> lookupProvider,
-                                CompletableFuture<TagsProvider.TagLookup<Block>> blockTagLookup) {
-        super(output, lookupProvider, blockTagLookup, CoinsGlobals.MOD_ID);
+                                CompletableFuture<HolderLookup.Provider> lookupProvider) {
+        super(output, lookupProvider, Coins.MOD_ID);
     }
 
     @Override

@@ -8,22 +8,22 @@ import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import net.riser876.coins.util.CoinsGlobals;
+import net.riser876.coins.Coins;
 
 import java.util.function.Supplier;
 
 public class CoinsItem {
 
-    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(CoinsGlobals.MOD_ID);
+    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Coins.MOD_ID);
 
     public static final DeferredItem<Item> GOLD_COIN = register(CoinId.GOLD_COIN.getId());
     public static final DeferredItem<Item> IRON_COIN = register(CoinId.IRON_COIN.getId());
     public static final DeferredItem<Item> COPPER_COIN = register(CoinId.COPPER_COIN.getId());
 
-    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, CoinsGlobals.MOD_ID);
+    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Coins.MOD_ID);
 
-    public static final Supplier<CreativeModeTab> COINS_TAB = CREATIVE_MODE_TABS.register(CoinsGlobals.MOD_ID, () -> CreativeModeTab.builder()
-            .title(Component.translatable("itemgroup." + CoinsGlobals.MOD_ID))
+    public static final Supplier<CreativeModeTab> COINS_TAB = CREATIVE_MODE_TABS.register(Coins.MOD_ID, () -> CreativeModeTab.builder()
+            .title(Component.translatable("itemgroup." + Coins.MOD_ID))
             .icon(() -> new ItemStack(CoinsItem.GOLD_COIN.get()))
             .displayItems((params, output) -> {
                 output.accept(CoinsItem.GOLD_COIN.get());
