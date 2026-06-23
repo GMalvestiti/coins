@@ -19,7 +19,7 @@ public class CoinsItem {
     public static final ResourceKey<CreativeModeTab> COINS_ITEM_GROUP_KEY = ResourceKey.create(BuiltInRegistries.CREATIVE_MODE_TAB.key(), ResourceLocation.fromNamespaceAndPath(CoinsGlobals.MOD_ID, "item_group"));
     public static final CreativeModeTab COINS_ITEM_GROUP = FabricItemGroup.builder()
             .icon(() -> new ItemStack(CoinsItem.GOLD_COIN))
-            .title(Component.translatable("itemgroup.coins"))
+            .title(Component.translatable("itemgroup." + CoinsGlobals.MOD_ID))
             .build();
 
     public static final Item GOLD_COIN = register(CoinId.GOLD_COIN.getId());
